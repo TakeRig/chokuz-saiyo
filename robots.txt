@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://chokuz.rig-el.com/sitemap.xml

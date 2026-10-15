@@ -2,11 +2,24 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
+<title>直Z採用｜SNSから、会社に直接応募が届く。</title>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<meta name="description" content="SNS広告で会社を知ってもらい、採用LP・採用LINEから直接応募を集める「直Z採用」。必要なサービスを選ぶだけで料金がわかるシミュレーション付き。運営：株式会社RIG-EL">
+<meta property="og:type" content="website">
+<meta property="og:title" content="直Z採用｜SNSから、会社に直接応募が届く。">
+<meta property="og:description" content="SNS広告で会社を知ってもらい、採用LP・採用LINEから直接応募を集める「直Z採用」。必要なサービスを選ぶだけで料金がわかるシミュレーション付き。運営：株式会社RIG-EL">
+<meta property="og:site_name" content="直Z採用">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="canonical" href="https://chokuz.rig-el.com/">
+<meta property="og:url" content="https://chokuz.rig-el.com/">
+<meta property="og:image" content="https://chokuz.rig-el.com/favicon.png">
+<script>window.CHOKUZ_FORM_ENDPOINT = "https://formspree.io/f/mppqodkn";</script>
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
-<title>直Z採用</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Jost:wght@400;500;600;700&display=swap">
@@ -127,10 +140,12 @@ section.blk{padding-block:88px}
 .stat .n{font-family:var(--font-num);font-weight:500;font-size:clamp(36px,4.6vw,50px);color:var(--ink);margin-right:3px;letter-spacing:0}
 .stat .n.jp{font-family:var(--font-round);font-weight:900;font-size:clamp(26px,3.4vw,34px)}
 .stat small{font-size:12px;color:var(--green-ink);margin-left:3px;font-weight:700}
+.stat .bd{font-size:10.5px;color:var(--muted);line-height:1.5;letter-spacing:.02em}
 @media (max-width:860px) and (min-width:621px){.stats{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:24px}.stat:nth-child(3){border-left:none}}
 @media (max-width:620px){
   .stats{grid-template-columns:minmax(0,1fr);padding:6px 20px}
-  .stat{flex-direction:row;justify-content:space-between;align-items:center;padding-block:14px}
+  .stat{flex-direction:row;flex-wrap:wrap;justify-content:space-between;align-items:center;padding-block:14px}
+  .stat .bd{flex-basis:100%;text-align:left}
   .stat + .stat{border-left:none;border-top:1px solid var(--line)}
   .stat .n{font-size:32px}
 }
@@ -221,19 +236,45 @@ textarea{min-height:120px;resize:vertical}
 .months input:focus-visible+span{outline:2px solid var(--green);outline-offset:2px}
 .months small{font-size:11px;color:var(--green-ink);margin-left:4px}
 
+/* スマホ版だけ：シミュレーションをタブで切り替え */
+.simtabs,.tabnav{display:none}
+@media (max-width:720px){
+  .simtabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;position:sticky;top:calc(env(safe-area-inset-top,0px) + 63px);z-index:15;background:var(--paper);margin:0 -16px 20px;padding:10px 16px;border-bottom:1px solid var(--line)}
+  .simtabs::-webkit-scrollbar{display:none}
+  .simtabs button{flex:none;font:inherit;font-size:13px;font-weight:700;color:var(--muted);background:var(--soft);border:1px solid transparent;border-radius:999px;padding:7px 14px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+  .simtabs button[aria-selected="true"]{background:var(--ink);color:var(--paper)}
+  .simtabs i{font-style:normal;font-family:var(--font-num);font-size:11px;min-width:18px;height:18px;border-radius:9px;background:var(--green);color:var(--on-green);display:inline-grid;place-items:center;padding-inline:5px}
+  .simtabs i:empty{display:none}
+  .sim-panels [data-tab]{display:none}
+  .sim-panels [data-tab].tab-on{display:block}
+  .sim-panels .group{margin-bottom:24px}
+  .tabnav{display:flex;gap:10px;margin-bottom:8px}
+  .tabnav .btn{flex:1;padding:13px 12px}
+  .tabnav .btn[hidden]{display:none}
+}
+
 /* result */
 .result{position:sticky;top:calc(env(safe-area-inset-top,0px) + 76px);display:flex;flex-direction:column;gap:12px}
 .rcard{background:linear-gradient(160deg,var(--hero-2),var(--hero));color:var(--hero-ink);border-radius:var(--r-lg);padding:26px 24px;position:relative;overflow:hidden}
 .rcard::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--green),transparent)}
 .rcard .lbl{font-size:12px;font-weight:700;color:var(--hero-muted);letter-spacing:.08em}
 .rcard .big{font-family:var(--font-num);font-weight:500;font-size:42px;line-height:1.15;color:var(--hero-ink);margin:4px 0 10px}
+.bar .t .ad{display:block;font-size:10px;color:#FF8DB0;font-weight:500}
 .rcard .big small{font-family:var(--font-round);font-size:13px;color:var(--hero-muted)}
 .rrow{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:12px 0;border-top:1px solid rgba(255,255,255,.12)}
 .rrow span{font-size:13px;color:var(--hero-muted);font-weight:500}
 .rrow b{font-family:var(--font-num);font-weight:500;font-size:20px;color:var(--hero-ink)}
 .rrow.first b{color:#FF8DB0}
 .rrow small{font-size:11px;font-weight:400}
-.tax{font-size:11px;color:var(--hero-muted);margin-top:6px}
+.tax{font-size:10.5px;color:var(--hero-muted);margin-top:8px;line-height:1.7}
+.adinline{margin:-6px 0 12px;font-size:13px;color:#FF8DB0;font-weight:700;letter-spacing:.02em}
+.adsep{margin-top:6px;padding:10px 12px;border-radius:var(--r-sm);background:rgba(255,255,255,.06);border:1px dashed rgba(255,255,255,.18)}
+.adrow{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:12px;color:var(--hero-muted);padding-block:2px}
+.adrow b{font-family:var(--font-num);font-weight:500;font-size:14px;color:var(--hero-muted)}
+.adrow small{font-size:10px}
+.adrow.gross{margin-top:6px;padding-top:8px;border-top:1px solid rgba(255,255,255,.14);color:var(--hero-ink);font-weight:700}
+.adrow.gross b{font-size:16px;color:var(--hero-ink);font-weight:600}
+.adrow.gross small{font-weight:400;color:var(--hero-muted)}
 .people{background:var(--paper);border-radius:var(--r-lg);padding:20px;border:1px solid var(--line)}
 .people h4{margin:0 0 12px;font-size:13px;letter-spacing:.04em}
 .pp{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;text-align:center;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
@@ -260,6 +301,63 @@ textarea{min-height:120px;resize:vertical}
   .bar .btn.main::after{display:none}
   body{padding-bottom:84px}
 }
+
+/* 導入事例 */
+#cases{background:var(--bg)}
+.cs-feature{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);border-radius:var(--r-lg);overflow:hidden;background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow);margin-bottom:20px}
+@media (max-width:820px){.cs-feature{grid-template-columns:minmax(0,1fr)}}
+.cs-body{padding:32px;display:flex;flex-direction:column;gap:18px}
+.cs-who{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.cs-ind{font-weight:900;font-size:20px}
+.cs-case .cs-ind{font-size:17px}
+.cs-chip{font-size:11px;font-weight:700;letter-spacing:.06em;border:1px solid var(--line);border-radius:4px;padding:1px 8px;color:var(--muted)}
+.cs-chip.pk{border-color:color-mix(in srgb,var(--green) 40%,var(--line));color:var(--green-ink)}
+.cs-blk h4{margin:0 0 6px;font-size:11px;letter-spacing:.16em;color:var(--muted);display:flex;align-items:center;gap:8px}
+.cs-blk h4::before{content:"";width:3px;height:12px;background:var(--green);border-radius:2px}
+.cs-blk p{margin:0;font-size:14px}
+.cs-tags{display:flex;flex-wrap:wrap;gap:6px}
+.cs-tags span{font-size:12px;background:var(--soft);border-radius:4px;padding:3px 10px}
+.cs-result{background:linear-gradient(160deg,var(--hero-2),var(--hero));color:var(--hero-ink);padding:32px;display:flex;flex-direction:column;justify-content:center;gap:20px;position:relative}
+.cs-result::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--green),transparent)}
+.cs-lbl{font-size:11px;letter-spacing:.16em;color:var(--hero-muted)}
+.cs-big{font-family:var(--font-num);font-weight:500;font-size:clamp(56px,7vw,80px);line-height:1;letter-spacing:-.01em}
+.cs-big small{font-family:var(--font-round);font-size:20px;font-weight:700;margin-left:4px}
+.cs-big .pk{color:#FF6B97}
+.cs-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid rgba(255,255,255,.14)}
+.cs-kpis div{padding:14px 10px 0 0;display:flex;flex-direction:column;gap:2px;min-width:0}
+.cs-kpis div + div{padding-left:12px;border-left:1px solid rgba(255,255,255,.14)}
+.cs-kpis span{font-size:10.5px;color:var(--hero-muted)}
+.cs-kpis b{font-family:var(--font-num);font-weight:500;font-size:18px}
+.cs-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:900px){.cs-cards{grid-template-columns:minmax(0,1fr)}}
+.cs-case{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px;display:flex;flex-direction:column;gap:14px}
+.cs-res{margin-top:auto;padding-top:16px;border-top:1px solid var(--line);display:flex;align-items:flex-end;justify-content:space-between;gap:10px}
+.cs-res .cs-big{font-size:44px;color:var(--ink)}
+.cs-res .cs-big small{font-size:14px}
+.cs-sub{text-align:right;font-size:11px;color:var(--muted);line-height:1.6}
+.cs-sub b{display:block;font-family:var(--font-num);font-size:16px;font-weight:500;color:var(--green-ink)}
+.cs-strip{margin-top:32px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);padding:22px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px}
+.cs-strip h4{margin:0;font-size:12px;letter-spacing:.14em;color:var(--muted)}
+.cs-strip ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px}
+.cs-strip li b{font-family:var(--font-num);font-weight:500;font-size:16px;color:var(--green-ink);margin-left:4px}
+.cs-cta{text-align:center;margin-top:36px}
+.cs-note{margin:0 0 14px;font-size:13px;color:var(--muted)}
+@media (max-width:620px){.cs-body,.cs-result{padding:24px 20px}.cs-case{padding:20px}}
+
+/* 継続率 */
+.cs-retain{margin-top:16px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px}
+.rt-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 20px;margin-bottom:14px}
+.rt-head h4{margin:0;font-size:12px;letter-spacing:.14em;color:var(--muted)}
+.rt-head p{margin:0;font-size:15px;font-weight:700}
+.rt-head p b{font-family:var(--font-num);font-weight:600;font-size:22px;color:var(--green-ink);margin-right:2px}
+.rt-bar{display:flex;height:14px;border-radius:7px;overflow:hidden;gap:2px;background:var(--paper)}
+.rt-bar span{display:block;height:100%}
+.s1{background:var(--green)}.s2{background:color-mix(in srgb,var(--green) 62%,var(--paper))}.s3{background:color-mix(in srgb,var(--green) 34%,var(--paper))}.s4{background:var(--line)}
+.rt-legend{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px 22px;font-size:12.5px}
+.rt-legend li{display:flex;align-items:center;gap:6px}
+.rt-legend i{width:10px;height:10px;border-radius:3px;display:inline-block}
+.rt-legend b{font-family:var(--font-num);font-weight:600;font-size:14px;margin-left:2px}
+.rt-note{margin:10px 0 0;font-size:11px;color:var(--muted)}
 
 /* compare */
 .vs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;max-width:860px;margin:0 auto}
@@ -311,6 +409,10 @@ textarea{min-height:120px;resize:vertical}
 footer{background:var(--hero);color:var(--hero-muted);padding-block:44px calc(44px + env(safe-area-inset-bottom,0px));font-size:12px}
 footer .wrap{display:flex;flex-direction:column;align-items:center;gap:18px;text-align:center}
 footer .company{display:flex;align-items:center;gap:14px;margin:0;font-size:13px}
+footer .links a{color:var(--hero-muted);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2)}
+footer .links a:hover{color:#FF8DB0}
+.consent{margin:0;text-align:center;font-size:12px;color:var(--muted)}
+.consent a{color:var(--green-ink)}
 footer .company dt{color:var(--hero-muted);letter-spacing:.14em;font-size:11px;padding-right:14px;border-right:1px solid rgba(255,255,255,.2)}
 footer .company dd{margin:0;color:var(--hero-ink);font-weight:700;letter-spacing:.06em}
 footer .company a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:2px;transition:color .2s,border-color .2s}
@@ -331,6 +433,7 @@ footer .flogo .lw{height:38px;width:auto;filter:invert(1) brightness(1.2)}
     <a class="logo" href="#top" aria-label="直Z採用 トップへ"><span class="lm"></span><span class="lw"></span></a>
     <nav>
       <a href="#how">しくみ</a>
+      <a href="#cases">導入事例</a>
       <a href="#sim">料金シミュレーション</a>
       <a href="#faq">よくある質問</a>
       <a class="cta" href="#contact">お問い合わせ</a>
@@ -377,8 +480,8 @@ footer .flogo .lw{height:38px;width:auto;filter:invert(1) brightness(1.2)}
     <div class="wrap">
       <div class="stats">
         <div class="stat"><span class="sl">運用実績</span><b><span class="n">5</span>年<small>以上</small></b></div>
-        <div class="stat"><span class="sl">運用企業数</span><b><span class="n">100</span>社<small>以上</small></b></div>
-        <div class="stat"><span class="sl">送客数（2025年度）</span><b><span class="n">6,800</span>人<small>以上</small></b></div>
+        <div class="stat"><span class="sl">運用企業数</span><b><span class="n">150</span>社<small>以上</small></b><span class="bd">首都圏80社 / 地方中枢都市40社 / 地方企業30社</span></div>
+        <div class="stat"><span class="sl">送客数（2023〜2025年度合計）</span><b><span class="n">20,638</span>名</b></div>
         <div class="stat"><span class="sl">対応業種</span><b><span class="n jp">全業種</span><small>対応可能</small></b></div>
       </div>
     </div>
@@ -444,10 +547,18 @@ footer .flogo .lw{height:38px;width:auto;filter:invert(1) brightness(1.2)}
       <div class="sec-head"><span class="tag">料金シミュレーション</span><h2>必要なものを<span class="mark">選ぶだけ</span>で、<br>すぐに金額がわかります</h2><p>すべてのサービスを1つずつ選べます。迷ったら、おすすめセットから始めてください。</p></div>
 
       <div class="sim-grid">
-        <div>
+        <div class="sim-panels" id="simPanels">
           <div class="presets" id="presets"></div>
 
-          <div class="group">
+          <div class="simtabs" id="simtabs" role="tablist" aria-label="料金シミュレーションの項目">
+            <button type="button" role="tab" data-t="job">募集内容</button>
+            <button type="button" role="tab" data-t="make">つくるもの<i id="cnt-make"></i></button>
+            <button type="button" role="tab" data-t="media">配信SNS<i id="cnt-media"></i></button>
+            <button type="button" role="tab" data-t="run">運用サポート<i id="cnt-run"></i></button>
+            <button type="button" role="tab" data-t="ad">広告費・期間</button>
+          </div>
+
+          <div class="group" data-tab="job">
             <div class="group-h"><h3>募集の内容</h3><p>集まる人数の目安を計算するために使います。</p></div>
             <div class="box selects">
               <label class="f">募集する職種<select id="job"></select></label>
@@ -458,7 +569,7 @@ footer .flogo .lw{height:38px;width:auto;filter:invert(1) brightness(1.2)}
 
           <div id="groups"></div>
 
-          <div class="group">
+          <div class="group" data-tab="ad">
             <div class="group-h"><h3>広告費</h3><span class="when ad">毎月・実費</span><p>SNS媒体に支払う配信費です。多いほど多くの人に届きます。</p></div>
             <div class="box slider">
               <div class="v" id="adOut"></div>
@@ -468,19 +579,27 @@ footer .flogo .lw{height:38px;width:auto;filter:invert(1) brightness(1.2)}
             </div>
           </div>
 
-          <div class="group">
+          <div class="group" data-tab="ad">
             <div class="group-h"><h3>ご契約期間</h3><p>長くご利用いただくほど、毎月の運用サポート費がおトクになります（広告費・配信するSNSの費用は対象外）。</p></div>
             <div class="months" id="months"></div>
           </div>
+
+          <div class="tabnav" id="tabnav"><button type="button" class="btn sub" id="tabPrev">← 前へ</button><button type="button" class="btn main" id="tabNext">次へ</button></div>
         </div>
 
         <aside class="result" aria-live="polite">
           <div class="rcard">
-            <div class="lbl">毎月のお支払い（2ヶ月目から）</div>
+            <div class="lbl">毎月のサービス料（2ヶ月目から）</div>
             <div class="big" id="rMonthly"></div>
+            <div class="adinline" id="rAdInline"></div>
             <div class="rrow first"><span>初月のお支払い<br><small>初期費用のみ（運用は2ヶ月目から）</small></span><b id="rInit"></b></div>
             <div class="rrow"><span id="rTotalL">合計</span><b id="rTotal"></b></div>
-            <div class="tax">すべて税別・広告費込みの金額です</div>
+            <div class="adsep">
+              <div class="adrow"><span>＋ 広告費（媒体へ実費）</span><b id="rAd"></b></div>
+              <div class="adrow"><span id="rAdTotalL">広告費の合計</span><b id="rAdTotal"></b></div>
+              <div class="adrow gross"><span id="rGrossL">グロス予算</span><b id="rGross"></b></div>
+            </div>
+            <div class="tax">すべて税別。広告費はSNS媒体へ直接お支払いいただく実費のため、サービス料とは別にかかります。</div>
           </div>
           <div class="people">
             <h4>この内容で集まる人数の目安</h4>
@@ -492,6 +611,75 @@ footer .flogo .lw{height:38px;width:auto;filter:invert(1) brightness(1.2)}
           <button class="btn sub" type="button" id="copySim">見積内容をコピー</button>
         </aside>
       </div>
+    </div>
+  </section>
+
+  <section class="blk" id="cases">
+    <div class="wrap">
+      <div class="sec-head"><span class="tag">導入事例</span><h2>業種も規模もさまざまな会社で、<br>採用が動き出しています</h2><p>守秘義務のため社名は伏せて掲載しています</p></div>
+
+      <article class="cs-feature">
+        <div class="cs-body">
+          <div class="cs-who"><span class="cs-ind">介護福祉業 A社</span><span class="cs-chip">従業員300人</span><span class="cs-chip">売上規模30億円</span><span class="cs-chip pk">カスタマイズプラン</span></div>
+          <div class="cs-blk"><h4>導入前の課題</h4><p>求人媒体に掲載しても若手の応募がほとんどなく、人材紹介の手数料がかさんでいた。</p></div>
+          <div class="cs-blk"><h4>実施したこと</h4><div class="cs-tags"><span>広告クリエイティブ制作</span><span>SNS広告運用</span><span>採用LINE構築・運用</span></div></div>
+          <div class="cs-blk"><h4>広告予算</h4><p>月10万円</p></div>
+        </div>
+        <div class="cs-result">
+          <span class="cs-lbl">RESULT ／ 1年間で</span>
+          <div class="cs-big"><span class="pk">16</span><small>名採用</small></div>
+          <div class="cs-kpis">
+            <div><span>リスト単価</span><b>¥2,500</b></div>
+            <div><span>面談単価</span><b>¥12,500</b></div>
+            <div><span>採用単価</span><b>14万円</b></div>
+          </div>
+        </div>
+      </article>
+
+      <div class="cs-cards">
+        <article class="cs-case">
+          <div class="cs-who"><span class="cs-ind">農業 B社</span><span class="cs-chip">従業員30人規模</span></div>
+          <div class="cs-blk"><h4>導入前の課題</h4><p>地方で若い働き手が集まらず、求人を出しても反応がなかった。</p></div>
+          <div class="cs-tags"><span>SNS運用</span><span>PV制作</span><span>HP制作</span><span>広告運用</span></div>
+          <div class="cs-res"><div class="cs-big">4<small>名採用</small></div><div class="cs-sub">3ヶ月で見込み<b>394名</b>採用単価 15万円</div></div>
+        </article>
+        <article class="cs-case">
+          <div class="cs-who"><span class="cs-ind">IT業界 C社</span><span class="cs-chip">従業員25人</span></div>
+          <div class="cs-blk"><h4>導入前の課題</h4><p>エンジニアの採用を紹介会社に頼っていて、1人あたりの費用が重かった。</p></div>
+          <div class="cs-tags"><span>HP制作</span><span>動画制作</span><span>MEO運用</span><span>SNS運用</span></div>
+          <div class="cs-res"><div class="cs-big">6<small>名採用</small></div><div class="cs-sub">半年で見込み<b>220名</b>採用単価 35万円</div></div>
+        </article>
+        <article class="cs-case">
+          <div class="cs-who"><span class="cs-ind">飲食 D社</span><span class="cs-chip">2店舗・40人規模</span></div>
+          <div class="cs-blk"><h4>導入前の課題</h4><p>アルバイトの入れ替わりが激しく、常に人手が足りない状態だった。</p></div>
+          <div class="cs-tags"><span>採用単価表の作成</span><span>媒体精査</span><span>広告運用</span></div>
+          <div class="cs-res"><div class="cs-big">24<small>名採用</small></div><div class="cs-sub">6ヶ月・アルバイト含む<b>採用単価 5.5万円</b></div></div>
+        </article>
+      </div>
+
+      <div class="cs-strip">
+        <h4>業種別の運用実績</h4>
+        <ul><li>メーカー・製造業<b>19社</b></li><li>飲食業<b>18社</b></li><li>IT企業<b>16社</b></li><li>サービス業<b>10社</b></li><li>不動産<b>9社</b></li><li>介護業<b>8社</b></li><li>美容業<b>6社</b></li><li>フィットネス<b>6社</b></li><li>人材紹介<b>6社</b></li><li>観光業<b>5社</b></li><li>医療事業<b>5社</b></li><li>イベント業<b>4社</b></li><li>林業<b>3社</b></li><li>その他<b>30社以上</b></li></ul>
+      </div>
+
+      <div class="cs-retain">
+        <div class="rt-head">
+          <h4>直Z採用の継続率</h4>
+          <p><b>7割以上</b>の企業様が1年以上継続してご利用中です</p>
+        </div>
+        <div class="rt-bar" role="img" aria-label="2年以上44.9%、1年〜2年未満27.9%、半年〜1年未満16.8%、3ヶ月〜半年未満10.4%">
+          <span style="width:44.9%" class="s1"></span><span style="width:27.9%" class="s2"></span><span style="width:16.8%" class="s3"></span><span style="width:10.4%" class="s4"></span>
+        </div>
+        <ul class="rt-legend">
+          <li><i class="s1"></i>2年以上<b>44.9%</b></li>
+          <li><i class="s2"></i>1年〜2年未満<b>27.9%</b></li>
+          <li><i class="s3"></i>半年〜1年未満<b>16.8%</b></li>
+          <li><i class="s4"></i>3ヶ月〜半年未満<b>10.4%</b></li>
+        </ul>
+        <p class="rt-note">過去にお取引のあった54社の集計（最低契約期間3ヶ月〜）</p>
+      </div>
+
+      <div class="cs-cta"><p class="cs-note">実績の詳細は、お問い合わせよりご確認いただけます</p><a class="btn main" href="#contact">自社に近い事例を聞いてみる</a></div>
     </div>
   </section>
 
@@ -510,6 +698,7 @@ footer .flogo .lw{height:38px;width:auto;filter:invert(1) brightness(1.2)}
     <div class="wrap">
       <div class="sec-head"><span class="tag">よくある質問</span><h2>よくいただくご質問</h2></div>
       <div class="faq">
+        <details><summary>どこの会社でも利用できますか？</summary><p>業種・規模・地域を問わず、多くの企業様にご利用いただいています。ただし、事前にお話をうかがい、募集内容や採用状況から効果が出にくいと判断した場合は、ご契約をお断りすることがあります。成果が見込めないままご費用をいただくことはしない方針です。</p></details>
         <details><summary>SNSのアカウントを持っていなくても大丈夫ですか？</summary><p>はい。広告用のアカウント開設から設定まで、すべてこちらで行います。</p></details>
         <details><summary>どのくらいで応募が来はじめますか？</summary><p>LPやLINEの準備が整ってから、配信開始の1〜2週間後に登録が入り始めるのが目安です。</p></details>
         <details><summary>広告費は誰に支払うのですか？</summary><p>広告費はInstagramやTikTokなどの媒体に支払う配信費です。お見積りでは実費として、サービス料と分けて表示しています。</p></details>
@@ -534,6 +723,7 @@ footer .flogo .lw{height:38px;width:auto;filter:invert(1) brightness(1.2)}
           <label class="check full"><input type="checkbox" id="cAttach" checked>シミュレーションの内容を添えて送る</label>
           <div class="attach full" id="attachBox"></div>
           <div class="formmsg ng full" id="formErr" hidden></div>
+          <p class="full consent"><a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意のうえ送信してください。</p>
           <div class="full" style="text-align:center"><button class="btn main" type="submit" id="submitBtn">この内容で送信する</button></div>
         </form>
         <div class="thanks" id="thanks" hidden>
@@ -559,6 +749,7 @@ footer .flogo .lw{height:38px;width:auto;filter:invert(1) brightness(1.2)}
           <label class="f full">ご希望の形<select id="pType"><option>紹介パートナー（お客様のご紹介）</option><option>販売代理店</option><option>まだ決まっていない・話を聞きたい</option></select></label>
           <label class="f full">事業内容・ご質問など<textarea id="pMsg" placeholder="例）中小企業向けに経営コンサルをしています。顧客の採用支援として紹介したいです。"></textarea></label>
           <div class="formmsg ng full" id="pErr" hidden></div>
+          <p class="full consent"><a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>に同意のうえ送信してください。</p>
           <div class="full" style="text-align:center"><button class="btn sub" type="submit" id="pSubmit">パートナーについて問い合わせる</button></div>
         </form>
         <div class="thanks" id="pThanks" hidden>
@@ -578,12 +769,12 @@ footer .flogo .lw{height:38px;width:auto;filter:invert(1) brightness(1.2)}
   </section>
 </main>
 
-<footer><div class="wrap"><div class="flogo"><span class="lm"></span><span class="lw"></span></div><dl class="company"><dt>運営会社</dt><dd><a href="https://rig-el.com" target="_blank" rel="noopener">株式会社RIG-EL<span aria-hidden="true"> ↗</span></a></dd></dl><div>© 直Z採用　表示の料金は目安です。正式なお見積りは担当者よりお送りします。</div></div></footer>
+<footer><div class="wrap"><div class="flogo"><span class="lm"></span><span class="lw"></span></div><dl class="company"><dt>運営会社</dt><dd><a href="https://rig-el.com" target="_blank" rel="noopener">株式会社RIG-EL<span aria-hidden="true"> ↗</span></a></dd></dl><div class="links"><a href="privacy.html">プライバシーポリシー</a></div><div>© 直Z採用　表示の料金は目安です。正式なお見積りは担当者よりお送りします。</div></div></footer>
 
 <div class="bar">
   <div class="bar-nums">
     <div class="t first"><span>初月のお支払い（税別）</span><b id="barF"></b></div>
-    <div class="t"><span>2ヶ月目以降／月（税別）</span><b id="barM"></b></div>
+    <div class="t"><span>月額サービス料（税別）</span><b id="barM"></b><span class="ad" id="barAd"></span></div>
   </div>
   <a class="btn main" href="#contact">相談する</a>
 </div>
@@ -703,7 +894,9 @@ function calc(){
   const apps = leads*APPLY_RATE, hires = apps*HIRE_RATE;
   const cmpHires = hires > 0 ? Math.max(1, hires) : 0;   // 比較は最低1人で計算
   const agency = S.salary*10000*AGENCY_RATE*cmpHires*(1+TAX);
-  return {months, ad, initial, monthlyAll, total, leads, apps, hires, cmpHires, media, agency, lines};
+  const serviceMonthly = monthlyAll - ad;                 // 広告費を除いたサービス料
+  const serviceTotal = initial + serviceMonthly*months;   // 表示用の合計（広告費は別）
+  return {months, ad, initial, monthlyAll, serviceMonthly, serviceTotal, total, leads, apps, hires, cmpHires, media, agency, lines};
 }
 
 /* ===== 画面 ===== */
@@ -712,7 +905,7 @@ function build(){
   $("presets").innerHTML = PRESETS.map((p,i) => `<button type="button" class="preset" data-i="${i}"><b>${p.name}</b><span>${p.sub}</span></button>`).join("")
     + `<button type="button" class="preset custom" data-i="-1"><span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">${ICON.gear}</svg></span><div><b>カスタマイズセット</b><span>下のカードから、必要なサービスだけを自分で選んで組み立てます</span></div></button>`;
   $("groups").innerHTML = GROUPS.map(g => `
-    <div class="group">
+    <div class="group" data-tab="${g.key}">
       <div class="group-h"><h3>${g.title}</h3><span class="when ${g.when}">${g.whenL}</span><p>${g.desc}</p></div>
       <div class="opts">${g.items.map(it => `
         <label class="opt" data-id="${it.id}">
@@ -756,17 +949,24 @@ function render(){
     : r.media.length && !S.ad ? "広告費が0円のため、SNSへの配信は行われません。"
     : "目安：月5万円から始められます。";
 
-  $("rMonthly").innerHTML = `${yen(r.monthlyAll*t)}<small> / 月</small>`;
+  $("rMonthly").innerHTML = `${yen(r.serviceMonthly*t)}<small> / 月</small>`;
   $("rInit").textContent = yen(r.initial*t);
-  $("rTotalL").textContent = `初期費用＋運用${r.months}ヶ月の合計`;
-  $("rTotal").textContent = yen(r.total);
-  $("barM").textContent = yen(r.monthlyAll*t);
+  $("rTotalL").textContent = `初期費用＋サービス料${r.months}ヶ月の合計`;
+  $("rTotal").textContent = yen(r.serviceTotal*t);
+  $("rAd").innerHTML = `${yen(r.ad*t)}<small> / 月</small>`;
+  $("rAdInline").textContent = `（＋広告実費分 ${man(r.ad*t)} / 月）`;
+  $("rAdTotalL").textContent = `広告費の合計（${r.months}ヶ月・別途）`;
+  $("rAdTotal").textContent = yen(r.ad*r.months*t);
+  $("rGrossL").innerHTML = `${r.months}ヶ月のグロス予算<br><small>初期費用＋サービス料＋広告費</small>`;
+  $("rGross").textContent = yen(r.total);
+  $("barM").textContent = yen(r.serviceMonthly*t);
+  $("barAd").textContent = `＋広告実費分 ${man(r.ad*t)}`;
   $("barF").textContent = yen(r.initial*t);
 
   $("rPeople").innerHTML = r.leads > 0
     ? `<div><b>${nfmt(r.leads)}</b><span>LINE・LP登録</span></div><div><b>${nfmt(r.apps)}</b><span>応募</span></div><div class="hire"><b>${hireL(r.hires)}</b><span>採用</span></div>`
     : `<p class="empty" style="grid-column:1/-1;margin:0">配信するSNSと広告費を選ぶと、ここに人数の目安が出ます。</p>`;
-  $("rCph").textContent = r.cmpHires > 0 ? `${r.months}ヶ月の合計で、1人あたり約${man(r.total / r.cmpHires)}で採用できる計算です。` : "";
+  $("rCph").textContent = r.cmpHires > 0 ? `広告費も含めた総額で、1人あたり約${man(r.total / r.cmpHires)}で採用できる計算です。` : "";
 
   const usCost = r.monthlyAll * r.months;   // 比較は初期費用を除いた運用期間の費用
   $("vUs").textContent = yen(usCost);
@@ -792,8 +992,10 @@ function summary(r = calc()){
     r.lines.map(l => `・${l.name}${l.unitL ? ` ×${l.qty}${l.unitL}` : ""}`).join("\n") || "・なし",
     ``,
     `初月のお支払い（初期費用）：${yen(r.initial*t)}（税別）`,
-    `2ヶ月目からの毎月のお支払い：${yen(r.monthlyAll*t)}（税別・広告費込）`,
-    `${r.months}ヶ月の合計：${yen(r.total)}（税別）`,
+    `2ヶ月目からの月額サービス料：${yen(r.serviceMonthly*t)}（税別）`,
+    `初期費用＋サービス料${r.months}ヶ月の合計：${yen(r.serviceTotal*t)}（税別）`,
+    `広告費（媒体へ実費・別途）：${yen(r.ad*t)}/月、${r.months}ヶ月で${yen(r.ad*r.months*t)}`,
+    `${r.months}ヶ月のグロス予算（初期費用＋サービス料＋広告費）：${yen(r.total)}（税別）`,
     r.leads > 0 ? `人数の目安：登録 約${nfmt(r.leads)}人／応募 約${nfmt(r.apps)}人／採用 約${hireL(r.hires)}人` : null
   ].filter(x => x !== null).join("\n");
 }
@@ -846,9 +1048,29 @@ function bind(){
   $("copySim").addEventListener("click", () => copy(summary(), "見積内容をコピーしました"));
 }
 
-/* ===== お問い合わせ（db に保存） ===== */
+/* ===== お問い合わせの送信 =====
+   本番サーバー：window.CHOKUZ_FORM_ENDPOINT（config.json の form_endpoint）へPOST
+   プレビュー（claude.ai）：db に保存
+   どちらも使えないとき：入力内容をコピーしてもらう */
 let dbP = null;
 const getDb = () => dbP ??= (window.claude?.use ? window.claude.use("db") : Promise.resolve(null));
+async function sendForm(kind, data){
+  const endpoint = window.CHOKUZ_FORM_ENDPOINT || "";
+  if(endpoint){
+    const fd = new FormData();
+    fd.append("form_type", kind === "inquiries" ? "お問い合わせ" : "パートナー・代理店");
+    fd.append("_subject", kind === "inquiries" ? `【直Z採用】お問い合わせ：${data.company}` : `【直Z採用】パートナー応募：${data.company}`);
+    Object.entries(data).forEach(([k, val]) => fd.append(k, val ?? ""));
+    const gas = /script\.google\.com/.test(endpoint);
+    const res = await fetch(endpoint, gas ? {method:"POST", body:fd, mode:"no-cors"} : {method:"POST", body:fd, headers:{Accept:"application/json"}});
+    if(!gas && !res.ok) throw new Error("send failed");
+  }else{
+    const db = await getDb();
+    if(!db) throw new Error("no db");
+    await db.collection(kind).add(data);
+  }
+  try{ (window.dataLayer = window.dataLayer || []).push({event:"generate_lead", form_type:kind}); }catch(_){}
+}
 
 $("form").addEventListener("submit", async e => {
   e.preventDefault();
@@ -867,9 +1089,7 @@ $("form").addEventListener("submit", async e => {
     createdAt: new Date().toISOString()
   };
   try{
-    const db = await getDb();
-    if(!db) throw new Error("no db");
-    await db.collection("inquiries").add(data);
+    await sendForm("inquiries", data);
     $("form").hidden = true; $("thanks").hidden = false; $("noDb").hidden = true;
   }catch(x){
     const box = $("noDb"); box.hidden = false;
@@ -891,9 +1111,7 @@ $("pform").addEventListener("submit", async e => {
   const btn = $("pSubmit"); btn.disabled = true; btn.textContent = "送信中…";
   const data = {company:v("pCompany"), name:v("pName"), email:v("pEmail"), tel:v("pTel"), type:v("pType"), message:v("pMsg"), createdAt:new Date().toISOString()};
   try{
-    const db = await getDb();
-    if(!db) throw new Error("no db");
-    await db.collection("partners").add(data);
+    await sendForm("partners", data);
     $("pform").hidden = true; $("pThanks").hidden = false; $("pNoDb").hidden = true;
   }catch(x){
     const box = $("pNoDb"); box.hidden = false;
@@ -932,6 +1150,38 @@ $("pform").addEventListener("submit", async e => {
 })();
 
 build(); sync(); bind(); render();
+
+/* スマホ版のタブ切り替え */
+(function simTabs(){
+  const ORDER = ["job","make","media","run","ad"];
+  let cur = "make";
+  const bar = $("simtabs");
+  function show(t, scroll){
+    cur = t;
+    document.querySelectorAll(".sim-panels [data-tab]").forEach(el => el.classList.toggle("tab-on", el.dataset.tab === t));
+    bar.querySelectorAll("button").forEach(b => { const on = b.dataset.t === t; b.setAttribute("aria-selected", on); if(on) b.scrollIntoView({inline:"nearest", block:"nearest"}); });
+    const i = ORDER.indexOf(t);
+    $("tabPrev").hidden = i === 0;
+    $("tabNext").textContent = i === ORDER.length - 1 ? "見積を見る ↓" : `次へ：${bar.querySelector(`[data-t="${ORDER[i+1]}"]`).firstChild.textContent}`;
+  }
+  bar.addEventListener("click", e => { const b = e.target.closest("button"); if(b) show(b.dataset.t, true); });
+  $("tabPrev").addEventListener("click", () => show(ORDER[Math.max(0, ORDER.indexOf(cur)-1)], true));
+  $("tabNext").addEventListener("click", () => {
+    const i = ORDER.indexOf(cur);
+    if(i === ORDER.length - 1) document.querySelector(".result").scrollIntoView({behavior:"smooth", block:"start"});
+    else { show(ORDER[i+1], false); document.querySelector(".simtabs").scrollIntoView({block:"start"}); }
+  });
+  // 選択数のバッジ
+  const counts = () => ["make","media","run"].forEach(g => {
+    const n = Object.entries(S.sel).filter(([id,q]) => q && ITEMS[id]?.group === g).length;
+    const el = $("cnt-"+g); if(el) el.textContent = n || "";
+  });
+  const _render = render;
+  render = function(){ _render(); counts(); };
+  // 「カスタマイズセット」を押したら つくるもの タブへ
+  $("presets").addEventListener("click", e => { if(e.target.closest('.preset[data-i="-1"]')) show("make", false); });
+  show(cur, false); counts();
+})();
 
 /* ヒーローのチャットを動かす（広告→LP→応募の流れをループ再生） */
 (function heroChat(){
